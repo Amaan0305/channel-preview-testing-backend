@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "browser": "node app/server/puppeteerServer.mjs",
-    "server": "node app/server/index.js"
+    "server": "node app/server/index.js",
+    "postinstall": "PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer npx puppeteer install"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
