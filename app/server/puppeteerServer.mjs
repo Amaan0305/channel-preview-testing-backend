@@ -9,6 +9,7 @@ import SocialMedia from '../lib/models/channels.mjs';
 import ScreenshotReference from '../lib/models/ScreenshotReference.mjs';
 import ScreenshotTest from '../lib/models/ScreenshotTest.mjs';
 import cors from 'cors';
+import { executablePath } from 'puppeteer';
 
 // these are used for testing purpose(uploading channel data)
 // import captureScreenshots from './captureScreenshots.mjs';
@@ -37,10 +38,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 async function initializePuppeteer() {
-  const executablePath = await puppeteer.executablePath();
-  console.log(`Using Chrome executable at: ${executablePath}`);
+  // const executablePath = executablePath();
+  // console.log(`Using Chrome executable at: ${executablePath}`);
   browser = await puppeteer.launch({
-    executablePath: executablePath,
+    executablePath: executablePath(),
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   page = await browser.newPage();
