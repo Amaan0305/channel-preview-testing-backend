@@ -16,7 +16,7 @@ import cors from 'cors';
 // import addSocialMediaChannel from './addChannel.mjs';
 
 const app = express();
-const port = 4001;
+const port = 4000;
 
 let browser;
 let page;
@@ -37,7 +37,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 async function initializePuppeteer() {
+  const executablePath = await puppeteer.executablePath();
+  console.log(`Using Chrome executable at: ${executablePath}`);
   browser = await puppeteer.launch({
+    executablePath: executablePath,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   page = await browser.newPage();
