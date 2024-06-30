@@ -37,7 +37,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 async function initializePuppeteer() {
-  browser = await puppeteer.launch({ headless: true });
+  browser = await puppeteer.launch({
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/opt/render/.cache/puppeteer/chrome/linux-126.0.6478.55/chrome-linux/chrome',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
   page = await browser.newPage();
   await page.setUserAgent(
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
