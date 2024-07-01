@@ -40,11 +40,14 @@ app.use(cors(corsOptions));
 async function initializePuppeteer() {
   // const executablePath = executablePath();
   // console.log(`Using Chrome executable at: ${executablePath}`);
+  const browserFetcher = puppeteer.createBrowserFetcher({ path: '/opt/render/.cache/puppeteer' });
+  const revisionInfo = await browserFetcher.download('126.0.0'); // Use the exact version you need
   browser = await puppeteer.launch(
-  //   {
+    {
   //   executablePath: executablePath(),
-  //   args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  // }
+        executablePath: revisionInfo.executablePath,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  }
 );
   page = await browser.newPage();
   await page.setUserAgent(
