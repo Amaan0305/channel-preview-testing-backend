@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "browser": "node app/server/puppeteerServer.mjs",
-    "server": "node app/server/index.js",
-    "postinstall": "PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer npx puppeteer install"
+    "server": "node app/server/index.js"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
@@ -24,7 +23,7 @@
     "next": "^14.2.4",
     "next-cloudinary": "^6.6.2",
     "pixelmatch": "^5.3.0",
-    "puppeteer": "^22.11.0",
+    "puppeteer": "^22.12.1",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "^18.3.1",

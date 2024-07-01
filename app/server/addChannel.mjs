@@ -24,3 +24,5 @@ const addSocialMediaChannel = async (channelName,divSelector,data,code) => {
 };
 
 export default addSocialMediaChannel;
+
+// "postinstall": "PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer npx puppeteer install"

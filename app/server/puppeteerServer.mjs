@@ -40,10 +40,12 @@ app.use(cors(corsOptions));
 async function initializePuppeteer() {
   // const executablePath = executablePath();
   // console.log(`Using Chrome executable at: ${executablePath}`);
-  browser = await puppeteer.launch({
-    executablePath: executablePath(),
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  browser = await puppeteer.launch(
+  //   {
+  //   executablePath: executablePath(),
+  //   args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  // }
+);
   page = await browser.newPage();
   await page.setUserAgent(
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
